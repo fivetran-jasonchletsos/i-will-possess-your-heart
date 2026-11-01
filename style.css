@@ -1,0 +1,91 @@
+:root{
+  --black:#050505;--ink:#0d0d0d;--red:#ff1a1a;--deep:#b30000;--bone:#efe8da;--grey:#9a948a;
+  --marker:"Permanent Marker","Special Elite",cursive;
+  --stencil:"Black Ops One",Impact,sans-serif;
+  --type:"Special Elite","Courier New",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--bone);font:18px/1.6 var(--type)}
+a{color:var(--red)}
+::selection{background:var(--red);color:#000}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* film grain and scratches over everything */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.16;mix-blend-mode:screen;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+/* scrolling tape strip */
+.ticker{background:var(--red);color:#000;font:700 .9rem var(--stencil);letter-spacing:.12em;overflow:hidden;white-space:nowrap;border-bottom:4px solid #000}
+.ticker .track{display:inline-flex;animation:slide 26s linear infinite}
+.ticker span{padding:6px 0}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* hero */
+.hero{position:relative;max-width:1000px;margin:0 auto;padding:44px 18px 36px;text-align:center}
+.stamp{display:inline-block;border:3px solid var(--red);color:var(--red);font:400 1rem var(--stencil);letter-spacing:.2em;padding:4px 14px;transform:rotate(-4deg);margin:0 0 18px}
+h1{font:400 clamp(2.4rem,11vw,6rem)/.98 var(--stencil);color:var(--red);margin:.1em 0 .25em;text-transform:uppercase;letter-spacing:.01em;
+  text-shadow:4px 4px 0 #000,6px 6px 0 var(--deep)}
+h1 .l{display:inline-block;transition:transform .15s}
+h1 .cut{background:var(--bone);color:#000;padding:0 .08em;text-shadow:none;box-shadow:3px 3px 0 var(--deep)}
+h1 .w{display:inline-block;white-space:nowrap;margin-right:.18em}
+.sub{font:1.35rem var(--marker);color:var(--bone);margin:0 0 10px}
+.warn{max-width:34em;margin:0 auto 24px;color:var(--grey);font-size:.98rem;border-left:4px solid var(--red);padding:2px 0 2px 12px;text-align:left}
+
+.btn{display:inline-block;font:400 1.05rem var(--stencil);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#000;background:var(--red);
+  border:3px solid #000;box-shadow:5px 5px 0 var(--deep);padding:12px 22px;cursor:pointer;min-height:48px}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--deep)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--deep)}
+.btn.ghost{background:transparent;color:var(--red);border-color:var(--red)}
+.row{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0}
+
+main{max-width:900px;margin:0 auto;padding:0 16px 40px}
+
+/* torn flyer panels with tape */
+.flyer{position:relative;background:var(--ink);border:2px solid #222;border-top:4px solid var(--red);padding:30px 22px 24px;margin:46px 0;
+  box-shadow:8px 8px 0 #000,0 0 0 1px #1a1a1a}
+.flyer::before{content:"";position:absolute;top:-16px;left:50%;width:110px;height:28px;transform:translateX(-50%) rotate(-3deg);background:rgba(239,232,218,.75);box-shadow:0 1px 3px rgba(0,0,0,.6)}
+.flyer.tilt-l{transform:rotate(-.6deg)}
+.flyer.tilt-r{transform:rotate(.6deg)}
+h2{font:400 clamp(1.7rem,6vw,2.6rem)/1.05 var(--stencil);color:var(--red);text-transform:uppercase;margin:.1em 0 .4em;letter-spacing:.02em}
+.small{color:var(--grey);font-size:.9rem}
+.verdict{font:1.35rem/1.35 var(--marker);color:var(--bone);margin:1em 0 0;border-top:2px dashed #333;padding-top:14px}
+
+/* the numbers */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin:18px 0}
+.stat{border:3px solid var(--red);padding:12px 10px;text-align:center;transform:rotate(var(--r,0deg));background:#000}
+.stat b{display:block;font:400 3.2rem/1 var(--stencil);color:var(--red)}
+.stat span{display:block;font-size:.92rem;color:var(--bone);margin-top:6px}
+
+/* whiplash list */
+.whiplash{list-style:none;padding:0;margin:16px 0;display:grid;gap:8px;counter-reset:x}
+.whiplash li{display:flex;gap:14px;align-items:baseline;border-left:6px solid var(--red);background:#000;padding:8px 12px}
+.whiplash .no{font:400 1.3rem var(--stencil);color:var(--red);min-width:2.2em}
+.whiplash .t{font-weight:700}
+.whiplash .a{color:var(--grey);font-size:.92rem;display:block}
+
+/* exhibit card */
+.exhibit,.exhibits .card{background:#000;border:3px solid var(--red);padding:18px 18px 16px;margin:16px 0;position:relative}
+.exhibit:empty{display:none}
+.exhibit .tag,.card .tag{position:absolute;top:-14px;left:14px;background:var(--red);color:#000;font:400 .85rem var(--stencil);letter-spacing:.15em;padding:2px 10px}
+.exhibit h3,.card h3{font:400 1.5rem/1.15 var(--marker);color:var(--bone);margin:.4em 0 .1em}
+.exhibit .by,.card .by{color:var(--grey);font-size:.9rem;margin:0 0 .6em}
+.exhibit p.r,.card p.r{margin:0;font-size:1.05rem}
+.exhibits{display:grid;gap:22px;margin-top:26px}
+.exhibit.pop{animation:pop .35s ease}
+@keyframes pop{from{transform:scale(.96) rotate(-1deg);opacity:.2}to{transform:none;opacity:1}}
+
+/* lists */
+.leaving,.says{padding-left:1.2em}
+.leaving li,.says li{margin:.45em 0}
+.leaving li::marker,.says li::marker{color:var(--red)}
+.leaving em{color:var(--grey);font-style:normal}
+
+.final{border-top-width:8px;text-align:center}
+.final .big{font:clamp(1.5rem,5.5vw,2.4rem)/1.15 var(--marker);color:var(--red);margin:.2em 0 .6em;text-shadow:2px 2px 0 #000}
+
+iframe{border:0;background:#000}
+footer{text-align:center;color:var(--grey);font-size:.88rem;padding:30px 16px 60px;border-top:1px solid #1d1d1d}
+
+@media(max-width:560px){body{font-size:17px}.flyer{padding:26px 16px 20px}.flyer.tilt-l,.flyer.tilt-r{transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.ticker .track{transform:none}}
