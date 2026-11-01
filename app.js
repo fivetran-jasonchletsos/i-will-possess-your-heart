@@ -104,6 +104,34 @@
     return "<li><b>" + esc(mask(t.title)) + "</b> <em>" + esc(t.artist) + ".</em> " + esc(l[1]) + "</li>";
   }).join("");
 
+  // ---- soundtrack cues: the song, a description in my own words, and a play button. No lyrics are reproduced. ----
+  var H = window.HER1 || [], C = window.CUES || {}, R = window.RECS || [];
+  var embed = function (id, box) {
+    box.innerHTML = '<iframe title="Play the song" src="https://open.spotify.com/embed/track/' + id + '?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allow="encrypted-media; clipboard-write" loading="lazy"></iframe>';
+  };
+  document.querySelectorAll(".cue").forEach(function (el) {
+    var c = C[el.dataset.cue]; if (!c) return;
+    el.innerHTML = '<span class="k">Soundtrack for this section</span><b>' + esc(c.title) + '</b> <i>' + esc(c.artist) + '</i><span class="v">' + esc(c.vibe) + '</span><button class="play" type="button">Play it here</button><div class="slot"></div>';
+    el.querySelector(".play").onclick = function () { embed(c.id, el.querySelector(".slot")); this.hidden = true; };
+  });
+
+  // ---- exhibit B: the other playlist, counted ----
+  var hc = function (re) { return H.filter(function (t) { return re.test(t.artist); }).length; };
+  var s2 = [[hc(/bon iver/i), "Bon Iver songs. He has his own wing.", -1.5], [hc(/of monsters and men/i), "Of Monsters and Men songs, enough to fill a fantasy novel", 1.5], [hc(/taken by trees/i), "Taken By Trees songs, for the people who have heard of Taken By Trees", -1], [hc(/lumineers/i), "Lumineers songs, in case the folk wasn't clear", 2]];
+  $("stats2").innerHTML = s2.map(function (x) { return '<div class="stat" style="--r:' + x[2] + 'deg"><b>' + x[0] + '</b><span>' + esc(x[1]) + "</span></div>"; }).join("");
+  $("indie").innerHTML = [
+    "<b>Such Great Heights</b> appears twice, by two different artists: the Postal Service and Iron & Wine. She was not taking chances.",
+    "<b>Sinking Man</b> sits at tracks 27 and 28, which are the same song. Added twice, in case the first time did not take.",
+    "The playlist has Phosphorescent, Fleet Foxes, Bright Eyes and Modest Mouse, so it has taste, range, and a long drive ahead of it."
+  ].map(function (t) { return "<li>" + t + "</li>"; }).join("");
+
+  // ---- prescribed listening, from my playlist ----
+  $("recs").innerHTML = R.map(function (r, i) {
+    return '<li class="rec"><span class="n">' + (i + 1) + '</span><div><b>' + esc(r.title) + '</b> <i>' + esc(r.artist) + '</i><span class="v">' + esc(r.why) + '</span><button class="play" type="button" data-id="' + esc(r.id) + '">Play it here</button><div class="slot"></div></div></li>';
+  }).join("");
+  document.querySelectorAll(".rec .play").forEach(function (b) { b.onclick = function () { embed(b.dataset.id, b.parentNode.querySelector(".slot")); b.hidden = true; }; });
+  $("fullpl").href = "https://open.spotify.com/playlist/" + (window.JASON_PLAYLIST || "");
+
   // ---- the player ----
   $("embed").src = "https://open.spotify.com/embed/playlist/" + (window.PLAYLIST_ID || "") + "?utm_source=generator&theme=0";
 })();

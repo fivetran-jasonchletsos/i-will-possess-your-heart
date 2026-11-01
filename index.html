@@ -19,6 +19,7 @@
 
 <header class="hero">
   <p class="dedication">Dedicated to Elycia</p>
+  <p class="from">From Jason</p>
   <p class="stamp">CASE FILE NO. 40</p>
   <h1 id="title" aria-label="I Will Possess Your Heart">I Will Possess Your Heart</h1>
   <p class="sub">An unsolicited forensic analysis of one playlist.</p>
@@ -31,6 +32,7 @@
     <h2>The numbers</h2>
     <div class="stats" id="stats"></div>
     <p class="small">Counted by hand, with a calculator, in a dark room.</p>
+    <div class="cue" data-cue="zula"></div>
   </section>
 
   <section class="flyer tilt-l">
@@ -38,6 +40,7 @@
     <p>Tracks 33 to 40, in order. Nothing has been edited.</p>
     <ol class="whiplash" id="whiplash"></ol>
     <p class="verdict">Three different people are sharing one steering wheel, and all of them are right.</p>
+    <div class="cue" data-cue="skinny"></div>
   </section>
 
   <section class="flyer tilt-r">
@@ -49,6 +52,14 @@
     </div>
     <div id="exhibit" class="exhibit" aria-live="polite"></div>
     <div id="exhibits" class="exhibits" hidden></div>
+  </section>
+
+  <section class="flyer tilt-l">
+    <h2>Exhibit B: the other playlist</h2>
+    <p>There is a second playlist, 48 songs, called "Feeling indie af". It is. The evidence:</p>
+    <div class="stats" id="stats2"></div>
+    <ul class="says" id="indie"></ul>
+    <div class="cue" data-cue="heights"></div>
   </section>
 
   <section class="flyer">
@@ -70,9 +81,17 @@
     </ul>
   </section>
 
+  <section class="flyer tilt-r">
+    <h2>Prescribed listening</h2>
+    <p>Based on the evidence, the following songs have been selected from my playlist. Each one is matched to something already in hers. Press play, ignore the rest, or skip all ten.</p>
+    <ol class="recs" id="recs"></ol>
+    <p><a class="btn ghost" id="fullpl" target="_blank" rel="noopener" href="#">The rest of my playlist</a></p>
+  </section>
+
   <section class="flyer">
     <h2>Missing from the evidence</h2>
     <p>Death Cab for Cutie does not appear anywhere in these forty tracks. I looked at all of them, twice. She says she likes them. A clerical error, and I have notes.</p>
+    <div class="cue" data-cue="possess"></div>
     <p class="small">Disclaimer: the title of this website is a lyric, not a plan. Nobody is being possessed. I am just a person with a flowers habit and a spreadsheet.</p>
   </section>
 
@@ -85,7 +104,9 @@
     <h2>The verdict</h2>
     <p class="big">Guilty of excellent taste, wide range, and zero fear.</p>
     <p>I would listen to the whole thing, from the front, with the windows down. If you ever want to trade playlists in person, I know a place with good coffee and terrible acoustics. No pressure at all, and the file stays open.</p>
+    <div class="cue" data-cue="one"></div>
     <p class="dedic-end">For Elycia.</p>
+    <p class="sign">From Jason</p>
     <p class="small">Your playlist, your rules, your reply.</p>
   </section>
 </main>
@@ -96,6 +117,7 @@
 </footer>
 
 <script src="tracks.js"></script>
+<script src="music.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

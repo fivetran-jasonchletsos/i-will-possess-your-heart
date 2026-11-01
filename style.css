@@ -94,3 +94,19 @@ footer{text-align:center;color:var(--grey);font-size:.88rem;padding:30px 16px 60
 .dedication::before,.dedication::after{content:"//";color:var(--bone);margin:0 .5em;font-family:var(--stencil)}
 .dedic-end{font:2.2rem var(--marker);color:var(--red);margin:.6em 0 .2em;text-shadow:3px 3px 0 #000;transform:rotate(-2deg)}
 .dedic-foot{font:1.3rem var(--marker);color:var(--red);margin:0 0 6px}
+
+.from{font:1.15rem var(--type);color:var(--bone);margin:-2px 0 12px;letter-spacing:.08em}
+.sign{font:1.6rem var(--marker);color:var(--bone);margin:0 0 6px}
+/* soundtrack cue strip */
+.cue{margin:22px 0 4px;border-top:2px dashed #333;padding-top:12px;font-size:.95rem}
+.cue .k{display:block;font:400 .78rem var(--stencil);letter-spacing:.2em;color:var(--red);text-transform:uppercase;margin-bottom:2px}
+.cue b{font:400 1.25rem var(--marker);color:var(--bone)}
+.cue i,.rec i{color:var(--grey);font-style:normal}
+.cue .v,.rec .v{display:block;color:var(--bone);margin:2px 0 8px}
+.play{font:400 .9rem var(--stencil);letter-spacing:.08em;text-transform:uppercase;color:var(--red);background:transparent;border:2px solid var(--red);padding:8px 14px;cursor:pointer;min-height:44px}
+.play:hover{background:var(--red);color:#000}
+.slot iframe{margin-top:8px;border-radius:8px}
+.recs{list-style:none;padding:0;margin:16px 0;display:grid;gap:14px}
+.rec{display:flex;gap:14px;align-items:flex-start;background:#000;border-left:6px solid var(--red);padding:12px 14px}
+.rec .n{font:400 1.6rem var(--stencil);color:var(--red);min-width:1.6em}
+.rec b{font:400 1.2rem var(--marker)}
