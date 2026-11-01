@@ -89,3 +89,8 @@ footer{text-align:center;color:var(--grey);font-size:.88rem;padding:30px 16px 60
 
 @media(max-width:560px){body{font-size:17px}.flyer{padding:26px 16px 20px}.flyer.tilt-l,.flyer.tilt-r{transform:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.ticker .track{transform:none}}
+
+.dedication{font:1.6rem var(--marker);color:var(--red);margin:0 0 6px;transform:rotate(-2deg);text-shadow:2px 2px 0 #000;letter-spacing:.02em}
+.dedication::before,.dedication::after{content:"//";color:var(--bone);margin:0 .5em;font-family:var(--stencil)}
+.dedic-end{font:2.2rem var(--marker);color:var(--red);margin:.6em 0 .2em;text-shadow:3px 3px 0 #000;transform:rotate(-2deg)}
+.dedic-foot{font:1.3rem var(--marker);color:var(--red);margin:0 0 6px}
